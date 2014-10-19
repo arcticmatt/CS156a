@@ -16,6 +16,7 @@ bottom=1in,footskip=0in]{geometry}
 \lhead{CS156a Pset 3}
 \rhead{Matt Lim}
 \begin{document}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 1
 \section*{Problem 1}
 \textbf{b} is the correct answer.
@@ -31,6 +32,7 @@ than $.03$. So the answer is $1000$. We can check this by plugging in
 $500$ and $1000$ into $2Me^{2\epsilon^2N}$. At $500$, we get $.164$, which is
 too big. At $1000$, we get $.013$, which is below the desired bound. Thus
 $1000$ is the correct answer.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 2
 \section*{Problem 2}
 \textbf{c} is the correct answer.
@@ -46,6 +48,7 @@ than $.03$. So the answer is $1500$. We can check this by plugging in
 $1000$ and $1500$ into $2Me^{2\epsilon^2N}$. At $1000$, we get $.135$, which is
 too big. At $1500$, we get $.011$, which is below the desired bound. Thus
 $1500$ is the correct answer.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 3
 \section*{Problem 3}
 \textbf{d} is the correct answer.
@@ -61,18 +64,67 @@ than $.03$. So the answer is $2000$. We can check this by plugging in
 $1500$ and $2000$ into $2Me^{2\epsilon^2N}$. At $1500$, we get $.111$, which is
 too big. At $2000$, we get $.009$, which is below the desired bound. Thus
 $2000$ is the correct answer.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 4
 \section*{Problem 4}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 5
 \section*{Problem 5}
+\textbf{b} is the correct answer.
+
+\noindent We have that if there is no break point, $m_{\mathcal{H}}(N) = 2^N$,
+and that if there is any break point, $m_{\mathcal{H}}(N)$ is polynomial in $N$.
+So, we know that (i) and (ii) are actual growth functions, since they are
+the growth functions for positive rays and positive intervals and are of the
+form $\sum_{i=0}^{k-1}\binom{N}{i}$. And we have that (v) is just $2^N$. Then
+we have that (iii) and (iv) are not polynomial in $N$ and not $2^N$. So we have
+our answer.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 6
 \section*{Problem 6}
+\textbf{c} is the correct answer.
+
+\noindent We have that with the "2-invervals" learning model, we can have at
+most 2 distinct sets of positive points. This is enough to shatter 3 and 4 points,
+as it is impossible to have 3 distinct sets of positive points with just
+3 or 4 points. But with 5 points, it is possible to have this: +1, -1, +1, -1,
++1, and we cannot achieve this dichotomy with the "2-intervals" learning
+model. So the answer is 5.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 7
 \section*{Problem 7}
+\textbf{c} is the correct answer.
+
+\noindent We get to this answer the following way. There are $\binom{N+1}{4}$
+ways to place 2 distinct intervals (choosing 4 bounds in total),
+and $\binom{N+1}{2}$ ways to place 1 distinct inverval (choosing 2 bounds in
+total). Then there is just $1$ dichotomy in which all the intervals are placed
+such that all the points are negative.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 8
 \section*{Problem 8}
+\textbf{d} is the correct answer.
+
+\noindent \textbf{d} is the only option that is consistent with the "1-interval"
+and "2-interval" learning models - for the "1-interval" learning model we had
+a break point of 3, and for the "2-interval" learning model we had a break point
+of 5. This also makes sense in general, as given $M$ intervals to play with,
+we can have at most $M$ distinct sets of positive points. So we are going to break
+once we reach $2M + 1$ points, because at this point we can have $M+1$ distinct
+sets of positive points as a possible dichotomy.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 9
 \section*{Problem 9}
+\textbf{c} is the correct answer.
+
+\noindent 1 point can clearly be shattered. 3 points can also clearly be
+shattered because a triangle is more powerful than a line. If we arrange all
+the points in a circle, it is clear that 5 points can be shattered as well.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 10
 \section*{Problem 10}
+\textbf{b} is the correct answer.
+
+\noindent Here, the maximum number of dichotomies we can get on $N$ points
+is when we put the $N$ points on a line. When we do this, the concentric circles
+act as intervals, and we can then see that this problem breaks down to
+the single positive interval problem. Thus our growth function for this is
+the same as our growth function for the single positive interval problem,
+$\binom{N+1}{2} + 1$.
 \end{document}
