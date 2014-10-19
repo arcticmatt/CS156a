@@ -1,0 +1,78 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Preamble
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,fullpage}
+\usepackage[a4paper,bindingoffset=0in,left=1in,right=1in,top=1in,
+bottom=1in,footskip=0in]{geometry}
+\newtheorem*{prop}{Proposition}
+%\newcounter{Examplecount}
+%\setcounter{Examplecount}{0}
+\newenvironment{discussion}{\noindent Discussion.}{}
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{10pt}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CS156a Pset 3}
+\rhead{Matt Lim}
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 1
+\section*{Problem 1}
+\textbf{b} is the correct answer.
+
+\noindent We want the probability bound $2Me^{2\epsilon^2N}$ to be at most $.03$.
+So, we can solve for
+\[ 2Me^{-2\epsilon^2N} = .03 \]
+\[ 2e^{-2(.05)^2N} = .03 \]
+\[ e^{-2(.05)^2N} = .015 \]
+\[ N = 839.94 \]
+So for any $N$ less than this value, our probability bound will be greater
+than $.03$. So the answer is $1000$. We can check this by plugging in
+$500$ and $1000$ into $2Me^{2\epsilon^2N}$. At $500$, we get $.164$, which is
+too big. At $1000$, we get $.013$, which is below the desired bound. Thus
+$1000$ is the correct answer.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 2
+\section*{Problem 2}
+\textbf{c} is the correct answer.
+
+\noindent We want the probability bound $2Me^{2\epsilon^2N}$ to be at most $.03$.
+So, we can solve for
+\[ 2Me^{-2\epsilon^2N} = .03 \]
+\[ 20e^{-2(.05)^2N} = .03 \]
+\[ e^{-2(.05)^2N} = .0015 \]
+\[ N = 1300.46 \]
+So for any $N$ less than this value, our probability bound will be greater
+than $.03$. So the answer is $1500$. We can check this by plugging in
+$1000$ and $1500$ into $2Me^{2\epsilon^2N}$. At $1000$, we get $.135$, which is
+too big. At $1500$, we get $.011$, which is below the desired bound. Thus
+$1500$ is the correct answer.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 3
+\section*{Problem 3}
+\textbf{d} is the correct answer.
+
+\noindent We want the probability bound $2Me^{2\epsilon^2N}$ to be at most $.03$.
+So, we can solve for
+\[ 2Me^{-2\epsilon^2N} = .03 \]
+\[ 200e^{-2(.05)^2N} = .03 \]
+\[ e^{-2(.05)^2N} = .00015 \]
+\[ N = 1760.98 \]
+So for any $N$ less than this value, our probability bound will be greater
+than $.03$. So the answer is $2000$. We can check this by plugging in
+$1500$ and $2000$ into $2Me^{2\epsilon^2N}$. At $1500$, we get $.111$, which is
+too big. At $2000$, we get $.009$, which is below the desired bound. Thus
+$2000$ is the correct answer.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 4
+\section*{Problem 4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 5
+\section*{Problem 5}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 6
+\section*{Problem 6}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 7
+\section*{Problem 7}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 8
+\section*{Problem 8}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 9
+\section*{Problem 9}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 10
+\section*{Problem 10}
+\end{document}
