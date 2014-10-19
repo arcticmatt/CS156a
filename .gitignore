@@ -1,3 +1,6 @@
+*.class
+out/
+.idea/
 .DS_STORE
 *.tmp
 *.swp
