@@ -123,25 +123,27 @@ once we reach $2M + 1$ points, because at this point we can have $M+1$ distinct
 sets of positive points as a possible dichotomy.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 9
 \section*{Problem 9}
-\textbf{c} is the correct answer.
+\textbf{d} is the correct answer.
 
 \noindent Basically solved this problem by doing the brute force way, trying
-each answer one by one. 1 point can clearly be shattered. 3 points can also
+each answer one by one by drawing it out.
+1 point can clearly be shattered. 3 points can also
 clearly be shattered because a triangle is more powerful than a line. If we
-arrange all the points in a circle, it is clear that 5 points can be shattered
-as well. Trying to shatter 7 points (arranged in a circle, which should give
-us the most possible dichotomies since a triangle is a convex set) fails.
-So we have that our answer is 5.
-
+arrange all the points in a circle, it is clear that 5 and 7 points can be
+shattered as well. However, trying to shatter 9 points arranged in a circle
+fails (alternate +1/-1). So we have our answer.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 10
 \section*{Problem 10}
 \textbf{e} is the correct answer.
 
-\noindent Here, the maximum number of dichotomies we can get on $N$ points
-is when we put the $N$ points on a line. When we do this, the concentric circles
-act as intervals, and we can then see that this problem breaks down to
-the "2-intervals" model. Thus our growth function for this is
-the same as our growth function for the single positive interval problem,
-$\binom{N+1}{4} + \binom{N+1}{2} + 1$. But this answer is not here, so it
-is none of the above.
+\noindent Here, consider the number of dichotomies we can get on $N$ points
+when we put the $N$ points on a line. When we do this, the concentric circles
+act as intervals. It's tempting to say that the answer is \textbf{b}, since
+it seems the same as the "1-interval" model. But we can see that with
+concentric circles, we can shatter 3 points. So the breakpoint for concentric
+circles is greater than 3. So, let us now go through the options and see if
+any of them are viable. \textbf{a} has a breakpoint of 2, so that doesn't
+work. As we mentioned above, \textbf{b} has a breakpoint of 3, so that doesn't
+work. \textbf{c} also has a breakpoint less than 3, and \textbf{d} is not
+less than or equal to $2^N$ for all values of $N$. So we have our answer.
 \end{document}
