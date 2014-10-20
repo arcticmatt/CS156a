@@ -67,7 +67,19 @@ $2000$ is the correct answer.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 4
 \section*{Problem 4}
+\textbf{b} is the correct answer.
 
+\noindent First of all, we know this is true because of the VC dimension + 1
+theory. Secondly, for 5 points in $\mathbb{R}^3$, we get one of the following
+situations. One situation is if all 5 points are on the same plane. Then
+we obviously cannot shatter this, because we cannot even shatter 4 points in the
+$\mathbb{R}^2$ case. Another situation is if 4 points are on the same plane
+and one is on a different plane. We obviously cannot shatter this either,
+since we could not shatter 4 points in $\mathbb{R}^2$.
+In our last situation, we can form a plane with 3 points that separates the
+2 other points. Then, we have that the dichotomy where the 3 points in that
+plane are +1, the 1 point on one side of that plane is -1, and the 1 point on
+the other side of the plane is also -1 cannot be achieved with the Perceptron Model.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 5
 \section*{Problem 5}
 \textbf{b} is the correct answer.
@@ -76,9 +88,9 @@ $2000$ is the correct answer.
 and that if there is any break point, $m_{\mathcal{H}}(N)$ is polynomial in $N$.
 So, we know that (i) and (ii) are actual growth functions, since they are
 the growth functions for positive rays and positive intervals and are of the
-form $\sum_{i=0}^{k-1}\binom{N}{i}$. And we have that (v) is just $2^N$. Then
-we have that (iii) and (iv) are not polynomial in $N$ and not $2^N$. So we have
-our answer.
+form $\sum_{i=0}^{k-1}\binom{N}{i}$ (polynomial). And we have that (v) is just
+$2^N$. Then we have that (iii) and (iv) are not polynomial in $N$ and not $2^N$.
+So we have our answer.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 6
 \section*{Problem 6}
 \textbf{c} is the correct answer.
@@ -97,7 +109,7 @@ model. So the answer is 5.
 ways to place 2 distinct intervals (choosing 4 bounds in total),
 and $\binom{N+1}{2}$ ways to place 1 distinct inverval (choosing 2 bounds in
 total). Then there is just $1$ dichotomy in which all the intervals are placed
-such that all the points are negative.
+together so that all the points are negative.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 8
 \section*{Problem 8}
 \textbf{d} is the correct answer.
@@ -113,18 +125,23 @@ sets of positive points as a possible dichotomy.
 \section*{Problem 9}
 \textbf{c} is the correct answer.
 
-\noindent 1 point can clearly be shattered. 3 points can also clearly be
-shattered because a triangle is more powerful than a line. If we arrange all
-the points in a circle, it is clear that 5 points can be shattered as well.
+\noindent Basically solved this problem by doing the brute force way, trying
+each answer one by one. 1 point can clearly be shattered. 3 points can also
+clearly be shattered because a triangle is more powerful than a line. If we
+arrange all the points in a circle, it is clear that 5 points can be shattered
+as well. Trying to shatter 7 points (arranged in a circle, which should give
+us the most possible dichotomies since a triangle is a convex set) fails.
+So we have that our answer is 5.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 10
 \section*{Problem 10}
-\textbf{b} is the correct answer.
+\textbf{e} is the correct answer.
 
 \noindent Here, the maximum number of dichotomies we can get on $N$ points
 is when we put the $N$ points on a line. When we do this, the concentric circles
 act as intervals, and we can then see that this problem breaks down to
-the single positive interval problem. Thus our growth function for this is
+the "2-intervals" model. Thus our growth function for this is
 the same as our growth function for the single positive interval problem,
-$\binom{N+1}{2} + 1$.
+$\binom{N+1}{4} + \binom{N+1}{2} + 1$. But this answer is not here, so it
+is none of the above.
 \end{document}
