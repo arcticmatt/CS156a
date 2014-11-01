@@ -14,59 +14,59 @@ public class LinearRegression {
 
     public static void main(String[] args) {
         /* Questions 5-7 */
-//        double sumFractionMisclassifiedIn = 0;
-//        double sumFractionMisclassifiedOut = 0;
-//        double sumNumTimesWeightVectorAdjusted = 0;
-//        int numTrials = 1000;
-//        double[][] weightVectors = new double[numTrials][3];
-//        for (int i = 0; i < numTrials; i++) {
-//            PLAGraph plaGraph = new PLAGraph(NUM_POINTS);
-//            LinearRegression linearRegression = new LinearRegression();
-//            PLARunner plaRunner = new PLARunner(plaGraph);
-//            ArrayList<MyPoint> pointList = plaGraph.getRandomPointList(1000);
-//
-//            double[] weightVector = linearRegression.getWeightVector(plaGraph.points);
-//            weightVectors[i] = weightVector;
-//
-//            int countMisclassifiedIn = plaGraph.countMisclassified(plaGraph.points, weightVector);
-//            double fractionMisclassifiedIn = (double) countMisclassifiedIn / plaGraph.points.size();
-//            System.out.println(fractionMisclassifiedIn);
-//            sumFractionMisclassifiedIn += fractionMisclassifiedIn;
-//
-//            int countMisclassifiedOut = plaGraph.countMisclassified(pointList, weightVector);
-//            double fractionMisclassifiedOut = (double) countMisclassifiedOut / pointList.size();
-//            sumFractionMisclassifiedOut += fractionMisclassifiedOut;
-//
-//            plaRunner.weightVector = weightVector;
-//            plaRunner.getWeightVector();
-//            sumNumTimesWeightVectorAdjusted += plaRunner.numTimesWeightVectorAdjusted;
-//
-//            countMisclassifiedIn = plaGraph.countMisclassified(plaGraph.points, weightVector);
-//            System.out.println("count misclassified = " + countMisclassifiedIn);
-//        }
-//        double avgFractionMisclassifiedIn = sumFractionMisclassifiedIn / numTrials;
-//        double avgFractionMisclassifiedOut = sumFractionMisclassifiedOut / numTrials;
-//        double avgNumTimesWeightVectorAdjusted = sumNumTimesWeightVectorAdjusted / numTrials;
-//        System.out.println("Average fraction misclassified IN = " + avgFractionMisclassifiedIn);
-//        System.out.println("Average fraction misclassified OUT = " + avgFractionMisclassifiedOut);
-//        System.out.println("Average PLA iterations = " + avgNumTimesWeightVectorAdjusted);
-
-        /* Question 8 */
         double sumFractionMisclassifiedIn = 0;
+        double sumFractionMisclassifiedOut = 0;
+        double sumNumTimesWeightVectorAdjusted = 0;
         int numTrials = 1000;
+        double[][] weightVectors = new double[numTrials][3];
         for (int i = 0; i < numTrials; i++) {
-            TargetFunction function = new TargetFunction(NUM_POINTS);
+            PLAGraph plaGraph = new PLAGraph(NUM_POINTS);
             LinearRegression linearRegression = new LinearRegression();
+            PLARunner plaRunner = new PLARunner(plaGraph);
+            ArrayList<MyPoint> pointList = plaGraph.getRandomPointList(1000);
 
-            double[] weightVector = linearRegression.getWeightVector(function.points);
+            double[] weightVector = linearRegression.getWeightVector(plaGraph.points);
+            weightVectors[i] = weightVector;
 
-            int countMisclassifiedIn = function.countMisclassified(function.points, weightVector);
-            double fractionMisclassifiedIn = (double) countMisclassifiedIn / function.points.size();
-            //System.out.println(fractionMisclassifiedIn);
+            int countMisclassifiedIn = plaGraph.countMisclassified(plaGraph.points, weightVector);
+            double fractionMisclassifiedIn = (double) countMisclassifiedIn / plaGraph.points.size();
+            System.out.println(fractionMisclassifiedIn);
             sumFractionMisclassifiedIn += fractionMisclassifiedIn;
+
+            int countMisclassifiedOut = plaGraph.countMisclassified(pointList, weightVector);
+            double fractionMisclassifiedOut = (double) countMisclassifiedOut / pointList.size();
+            sumFractionMisclassifiedOut += fractionMisclassifiedOut;
+
+            plaRunner.weightVector = weightVector;
+            plaRunner.getWeightVector();
+            sumNumTimesWeightVectorAdjusted += plaRunner.numTimesWeightVectorAdjusted;
+
+            countMisclassifiedIn = plaGraph.countMisclassified(plaGraph.points, weightVector);
+            System.out.println("count misclassified = " + countMisclassifiedIn);
         }
         double avgFractionMisclassifiedIn = sumFractionMisclassifiedIn / numTrials;
+        double avgFractionMisclassifiedOut = sumFractionMisclassifiedOut / numTrials;
+        double avgNumTimesWeightVectorAdjusted = sumNumTimesWeightVectorAdjusted / numTrials;
         System.out.println("Average fraction misclassified IN = " + avgFractionMisclassifiedIn);
+        System.out.println("Average fraction misclassified OUT = " + avgFractionMisclassifiedOut);
+        System.out.println("Average PLA iterations = " + avgNumTimesWeightVectorAdjusted);
+
+        /* Question 8 */
+//        double sumFractionMisclassifiedIn = 0;
+//        int numTrials = 1000;
+//        for (int i = 0; i < numTrials; i++) {
+//            TargetFunction function = new TargetFunction(NUM_POINTS);
+//            LinearRegression linearRegression = new LinearRegression();
+//
+//            double[] weightVector = linearRegression.getWeightVector(function.points);
+//
+//            int countMisclassifiedIn = function.countMisclassified(function.points, weightVector);
+//            double fractionMisclassifiedIn = (double) countMisclassifiedIn / function.points.size();
+//            //System.out.println(fractionMisclassifiedIn);
+//            sumFractionMisclassifiedIn += fractionMisclassifiedIn;
+//        }
+//        double avgFractionMisclassifiedIn = sumFractionMisclassifiedIn / numTrials;
+//        System.out.println("Average fraction misclassified IN = " + avgFractionMisclassifiedIn);
     }
 
     public LinearRegression() {
