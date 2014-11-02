@@ -1,0 +1,70 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Preamble
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,fullpage}
+\usepackage[a4paper,bindingoffset=0in,left=1in,right=1in,top=1in,
+bottom=1in,footskip=0in]{geometry}
+\newtheorem*{prop}{Proposition}
+%\newcounter{Examplecount}
+%\setcounter{Examplecount}{0}
+\newenvironment{discussion}{\noindent Discussion.}{}
+\setlength{\headheight}{12pt}
+\setlength{\headsep}{10pt}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CS156a Pset 5}
+\rhead{Matt Lim}
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 1
+\section*{Problem 1}
+\textbf{c} is the correct answer.
+
+\noindent When $N = 25$, the expected $E_{in}$ is $.0064$. When $N = 100$,
+the expected $E_{in}$ is $.0091$. Thus we have our answer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 2
+\section*{Problem 2}
+\textbf{d} is the correct answer.
+
+\noindent We are looking to find the correct behavior for
+$\text{sign}(\tilde{w}_0 + \tilde{w}_1x_1^2 + \tilde{w}_2x_2^2)$. We have
+that if $\tilde{w}_1 < 0$ and $\tilde{w}_2 > 0$, then we get a positive
+sign for large absolute values of $x_2$ and a negative sign for large absolute
+values of $x_1$. And we can adjust $\tilde{w}_0$ to achieve the exact
+behavior we are looking for. Thus we have our answer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 3
+\section*{Problem 3}
+\textbf{c} is the correct answer.
+
+\noindent We have that the VC dimension of a linear model in the transformed
+space $d_{VC} \leq \tilde{d} + 1$. And we have that $\tilde{d} = 14$, which
+means that $d_{VC} \leq 15$. Thus we have our answer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 4
+\section*{Problem 4}
+\textbf{e}
+
+\noindent We just use the chain rule to take the partial derivative of
+$E(u,v)$ with respect to $u$ to get the answer.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 5
+\section*{Problem 5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 6
+\section*{Problem 6}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 7
+\section*{Problem 7}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 8
+\section*{Problem 8}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 9
+\section*{Problem 9}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 10
+\section*{Problem 10}
+\end{document}
