@@ -3,6 +3,7 @@ package Assignment2;
 import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -78,5 +79,9 @@ public class PLAGraph {
             }
         }
         return false;
+    }
+
+    public void shufflePoints() {
+        Collections.shuffle(points);
     }
 }
