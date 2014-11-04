@@ -21,21 +21,27 @@ public class LogisticRegression {
     public static void main(String[] args) {
         int NUM_TIMES = 1000;
         int NUM_OUT_OF_SAMPLE_POINTS = 10000;
-        double sumFractionMisclassified = 0;
+        double sumErrorOut = 0;
         double sumEpochs = 0;
         for (int i = 0; i < NUM_TIMES; i++) {
             LogisticRegression logisticRegression = new LogisticRegression(100, .01);
             logisticRegression.run();
             ArrayList<MyPoint> outOfSamplePoints =
                     logisticRegression.logisticGraph.getRandomPointList(NUM_OUT_OF_SAMPLE_POINTS);
-            double numMisclassified = logisticRegression.logisticGraph.countMisclassified(outOfSamplePoints,
-                    logisticRegression.weightVector);
-            sumFractionMisclassified += numMisclassified / NUM_OUT_OF_SAMPLE_POINTS;
+            double sumCrossEntropyError = 0;
+            for (int j = 0; j < NUM_OUT_OF_SAMPLE_POINTS; j++) {
+                MyPoint point = outOfSamplePoints.get(j);
+                double wX = logisticRegression.weightVector[0] + logisticRegression.weightVector[1] * point.x
+                        + logisticRegression.weightVector[2] * point.y;
+                double crossEntropyError = Math.log(1 + Math.exp(-point.score * wX));
+                sumCrossEntropyError += crossEntropyError;
+            }
+            sumErrorOut += sumCrossEntropyError / NUM_OUT_OF_SAMPLE_POINTS;
             sumEpochs += logisticRegression.epochs;
         }
-        double avgFractionMisclassified = sumFractionMisclassified / NUM_TIMES;
+        double avgErrorOut = sumErrorOut / NUM_TIMES;
         double avgEpochs = sumEpochs / NUM_TIMES;
-        System.out.println("E_out = " + avgFractionMisclassified);
+        System.out.println("E_out = " + avgErrorOut);
         System.out.println("Avg epochs = " + avgEpochs);
     }
 
