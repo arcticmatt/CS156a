@@ -1,0 +1,1 @@
+/usr/bin/c++   -stdlib=libc++ -dynamiclib -Wl,-headerpad_max_install_names   -compatibility_version 4.0.0 -current_version 4.50.0 -o libarmadillo.4.50.0.dylib -install_name "/Users/mattlim/Documents/Caltech 2014-2015/CS156a/code/Week6/armadillo-4.500.0/"libarmadillo.4.dylib CMakeFiles/armadillo.dir/src/wrapper.cpp.o -framework Accelerate 

@@ -21,7 +21,7 @@ bottom=1in,footskip=0in]{geometry}
 \section*{Problem 1}
 \textbf{b} is the correct answer.
 
-\noindent This is because when we use a less sophistcated hypothesis set,
+\noindent This is because when we use a less sophisticated hypothesis set,
 we are going to be able, in general, to capture less of the target function
 $f$.
 
@@ -32,7 +32,8 @@ $f$.
 \noindent I wrote some code to do it. More specifically, I wrote code
 that runs Linear Regression on the training set after performing the non-linear
 transformation. This basically just boils down to calculating the weight vector
-by multiplying a bunch of matrices, as seen in lecture 12 slide 11.
+by multiplying a bunch of matrices, as seen in lecture 12 slide 11 (no
+regularization).
 I then calculated the in-sample and out-of-sample classification
 errors in the usual manner (using the weight vector I calculated, calculating
 dot products, and comparing signs).
@@ -93,27 +94,33 @@ both the sets, and since the set on the left is exactly what $\mathcal{H}_2$ is,
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 8
 \section*{Problem 8}
-\textbf{e} is the correct answer.
+\textbf{d} is the correct answer.
 
 \noindent For the operations including $w_{ij}^{(l)}x_i^{(l-1)}$, which
 are of the form
 \[ x_j^{(l)} = \theta(\sum_{i=0}^{d^{(l-1)}} w_{ij}^{(l)} x_i^{(l-1)}) \]
-I calculated $22$ operations ($18$ for $l = 1$, $1 \leq j \leq 3$ and $4$
+I counted $22$ operations ($18$ for $l = 1$, $1 \leq j \leq 3$ and $4$
 for $l=2$, $1 \leq j \leq 1$). For the operations including
-$w_{ij}^{(l)}\delta_{j}^{(l)}$, where are of the form
-\[ d_i^{(l-1)} = (1-(x_i^{(l-1)})^2) \sum_{j=1}^{d^{(l)}} w_{ij}^{(l)} d_j^{(l)} \]
-I calculated $18$ operations ($15$ for $l=1$,
-$1 \leq i \leq 5$ and $3$ for $l=2$, $1 \leq i \leq 3$; $i=0$ was not counted
-because here the coefficient
-in front of the sum is just zero). For the operations including $x_i^{(l-1)}
-d_j^{(l)}$, I calculated more than $10$ operations, which puts my answer
-choice at \textbf{e}.
+$w_{ij}^{(l)}\delta_{j}^{(l)}$, which are of the form
+\[ \delta_i^{(l-1)} = (1-(x_i^{(l-1)})^2) \sum_{j=1}^{d^{(l)}} w_{ij}^{(l)}
+    \delta_j^{(l)} \]
+I counted $3$ operations ($0$ for $l=1$,
+$1 \leq i \leq 5$ because for the input layer there is no signal
+and $3$ for $l=2$, $1 \leq i \leq 3$; $i=0$ was not counted
+because it makes the coefficient
+in front of the sum be just zero). For the operations including $x_i^{(l-1)}
+\delta_j^{(l)}$, which are of the form
+\[ w_{ij}^{(l)} \leftarrow w_{ij}^{(l)} - \eta x_i^{(l-1)} \delta_j^{(l)} \]
+I counted $22$ operations ($18$ for $l=1$, $1 \leq j \leq 3$, $1 \leq i \leq 5$
+and $4$ for $l=2$, $1 \leq j \leq 1$, $0 \leq i \leq 3$). These counts
+give me a total of $47$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 9
 \section*{Problem 9}
 \textbf{a} is the correct answer.
 
-\noindent Since each layer is fully connected, we only want to put two units
+\noindent Since each layer is fully connected, to minimize the number of
+weights, we only want to put two units
 on each hidden layer. Since no weights go into the $x_0^{(l)}$s, we have that
 this gives us $10$ weights from the input units to the first hidden layer and
 $36$ weights total from the hidden units to other hidden units/the output unit
