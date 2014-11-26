@@ -1,181 +1,9 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Preamble
-\documentclass{article}
-\usepackage{amsmath,amssymb,amsthm,fullpage}
-\usepackage[a4paper,bindingoffset=0in,left=1in,right=1in,top=1in,
-bottom=1in,footskip=0in]{geometry}
-\usepackage{listings}
-\newtheorem*{prop}{Proposition}
-%\newcounter{Examplecount}
-%\setcounter{Examplecount}{0}
-\newenvironment{discussion}{\noindent Discussion.}{}
-\setlength{\headheight}{12pt}
-\setlength{\headsep}{10pt}
-\usepackage{fancyhdr}
-
-\usepackage{color}
-\usepackage{setspace}
-\definecolor{Code}{rgb}{0,0,0}
-\definecolor{Decorators}{rgb}{0.5,0.5,0.5}
-\definecolor{Numbers}{rgb}{0.5,0,0}
-\definecolor{MatchingBrackets}{rgb}{0.25,0.5,0.5}
-\definecolor{Keywords}{rgb}{0,0,1}
-\definecolor{self}{rgb}{0,0,0}
-\definecolor{Strings}{rgb}{0,0.63,0}
-\definecolor{Comments}{rgb}{0,0.63,1}
-\definecolor{Backquotes}{rgb}{0,0,0}
-\definecolor{Classname}{rgb}{0,0,0}
-\definecolor{FunctionName}{rgb}{0,0,0}
-\definecolor{Operators}{rgb}{0,0,0}
-\definecolor{Background}{rgb}{0.98,0.98,0.98}
-\lstdefinelanguage{Python}{
-numbers=left,
-numberstyle=\footnotesize,
-numbersep=1em,
-xleftmargin=1em,
-framextopmargin=2em,
-framexbottommargin=2em,
-showspaces=false,
-showtabs=false,
-showstringspaces=false,
-frame=l,
-tabsize=4,
-% Basic
-basicstyle=\ttfamily\small\setstretch{1},
-% Comments
-commentstyle=\color{Comments}\slshape,
-% Strings
-stringstyle=\color{Strings},
-morecomment=[s][\color{Strings}]{"""}{"""},
-morecomment=[s][\color{Strings}]{'''}{'''},
-% keywords
-morekeywords={import,from,class,def,for,while,if,is,elif,else,not,and,or,print,break,continue,return,True,False,None,access,as,,del,except,exec,finally,global,import,lambda,pass,print,raise,try,assert},
-keywordstyle={\color{Keywords}\bfseries},
-% additional keywords
-morekeywords={[2]@invariant,pylab,numpy,np,scipy},
-keywordstyle={[2]\color{Decorators}\slshape},
-emph={self},
-emphstyle={\color{self}\slshape},
-%
-}
-
-\pagestyle{fancy}
-\fancyhf{}
-\lhead{CS156a Pset 8}
-\rhead{Matt Lim}
-\begin{document}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 1
-\section*{Problem 1}
-\textbf{d} is the correct answer.
-
-\noindent We have this because we can vary $\mathbf{w}$ and $b$. And since
-$\mathbf{w}$ has $d$ variables, we have $d+1$ variables in total.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 2
-\section*{Problem 2}
-\textbf{a} is the correct answer.
-
-\noindent I wrote some code to implement SVM with soft margin on the zip-code
-data by solving the equations laid out in the problem set. I used
-binary classification error. To help me write this code, I used the libsvm
-library. For this problem, I made sure to use the polynomial kernel as given
-in the problem. After running this code for $0$ versus all, $2$ versus all,
-$4$ versus all, $6$ versus all, and $8$ versus all, I found that $0$ versus
-all gave me the lowest accurary and thus the highest $E_{in}$ (ran prediction
-code on the training data).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 3
-\section*{Problem 3}
-\textbf{a} is the correct answer.
-
-\noindent I wrote some code to implement SVM with soft margin on the zip-code
-data by solving the equations laid out in the problem set. I used
-binary classification error. To help me write this code, I used the libsvm
-library. For this problem, I made sure to use the polynomial kernel as given
-in the problem. After running this code for 1 versus all, 3 versus all,
-5 versus all, 6 versus all, and 9 versus all, I found that 1 versus
-all gave me the highest accurary and thus the lowest $E_{in}$ (ran prediction
-code on the training data).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 4
-\section*{Problem 4}
-\textbf{c} is the correct answer.
-
-\noindent Using the code I wrote for the above two problems, I got
-386 support vectors for 1 versus all and 2180 support vectors for 0 versus
-all (with all the other parameters as specified in the problem). The difference
-between these two numbers is around 1800.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 5
-\section*{Problem 5}
-\textbf{d} is the correct answer.
-
-\noindent I wrote some code that runs the 1 versus 5 classifier with $Q = 2$
-and $C \in \{0.001, 0.01, 0.1, 1\}$. I then observed the number of support
-vectors, $E_{in}$, and $E_{out}$ for each $C$ value. I found that the only
-statement given in the problem that is true is that the maximum $C$ (1) achieves
-the lowest $E_{in}$ and the highest accuracy (around $99.68\%$ accuracy). I
-found that all the other statements given in the problem are false.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 6
-\section*{Problem 6}
-\textbf{b} is the correct answer.
-
-\noindent I wrote some code that runs the 1 versus 5 classifier with $Q = 2$
-and $C \in \{0.0001, 0.001, 0.01, 0.1, 1\}$ and then runs the 1 versus 5
-classifier with $Q = 5$ and $C \in \{0.0001, 0.001, 0.01, 0.1, 1\}$. I
-did this so I could compare values between all the runs. I found that the only
-statement given in the problem that is true is that when $C = 0.001$, the
-number of support vectors is lower at $Q = 5$ (76 versus 25).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 7
-\section*{Problem 7}
-\textbf{b} is the correct answer.
-
-\noindent I wrote some code that runs 10-fold cross validation for the polynomial
-kernel. With this code, I considered the 1 versus 5 classifier with $Q = 2$.
-I used $E_{cv}$ to select $C \in \{0.0001, 0.001, 0.01, 0.1, 1\}$. If there
-was a tie in $E_{cv}$, I selected the smaller $C$. I then ran this code for
-100 random runs (so I tried 100 different partitions). With this, I discovered
-that $C = 0.001$ is selected most often.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 8
-\section*{Problem 8}
-\textbf{c} is the correct answer.
-
-\noindent I basically used the same code I wrote for the above problem,
-and for each run, I added the value of $E_{cv}$ for $C = 0.001$. I then took
-the average value of this list, and it was around $0.005$.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 9
-\section*{Problem 9}
-\textbf{e} is the correct answer.
-
-\noindent I wrote code that runs SVM with the RBF kernel for all the values
-of $C$ given in the problem. I ran this code on the 1 versus 5 classifier.
-To help me write this code, I used the libsvm library. The value $C = 10^6$ gave
-me the lowest $E_{in}$ value (ran prediction code on the training data).
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Problem 10
-\section*{Problem 10}
-\textbf{c} is the correct answer.
-
-\noindent I wrote code that runs SVM with the RBF kernel for all the values
-of $C$ given in the problem. I ran this code on the 1 versus 5 classifier.
-To help me write this code, I used the libsvm library. The value $C = 100$ gave
-me the lowest $E_{out}$ value (ran prediction code on the test data).
-
-\newpage
-\section*{Code}
-\lstset{language=Python}
-\begin{lstlisting}
 from __future__ import division
 from svm import *
 from svmutil import *
 from collections import Counter
 import sys
 import random
-import numpy as np
 
 class MySvm:
     def __init__(self, file_train, file_test):
@@ -189,6 +17,7 @@ class MySvm:
         self.test_data_curr = self.test_data
         self.scores_test = []
 
+        # Lists of lists
         self.cross_data_curr_list = []
         self.scores_cross_list = []
         self.scores_tr_list = []
@@ -218,23 +47,30 @@ class MySvm:
 
     def one_versus_all(self, num_one, kernel_type, error_const, poly_degree,
             is_cross, is_repeat = False):
+        param_str = '-t %d -r 1 -g 1 -c %f -d %d' %(kernel_type, error_const, poly_degree)
         if not is_repeat:
             self.scores_tr, self.training_data_curr = self.get_one_versus_all_lists(
                     num_one, self.training_labels, self.training_data)
             self.scores_test, self.test_data_curr = self.get_one_versus_all_lists(
                     num_one, self.test_labels, self.test_data)
             if is_cross:
-                self.scores_tr, self.training_data_curr, self.scores_cross, self.cross_data_curr = self.get_cross_val_lists()
+                self.scores_tr_list, self.training_data_curr_list, self.scores_cross_list, self.cross_data_curr_list = self.get_cross_val_lists()
 
-        prob = svm_problem(self.scores_tr, self.training_data_curr)
-        param_str = '-t %d -r 1 -g 1 -c %f -d %d' %(kernel_type, error_const, poly_degree)
-        param = svm_parameter(param_str)
-        model = svm_train(prob, param)
-        self.model = model
-        self.num_support_vectors = len(model.get_SV())
+        if not is_cross:
+            self.model = self.get_model(param_str, self.scores_tr, self.training_data_curr)
+            self.num_support_vectors = len(model.get_SV())
+        else:
+            self.model_list = []
+            sum_num_support_vectors = 0
+            for i in range(0, len(self.scores_tr_list)):
+                self.model_list.append(self.get_model(param_str, self.scores_tr_list[i],
+                    self.training_data_curr_list[i]))
+                sum_num_support_vectors += len(self.model_list[i].get_SV())
+            self.num_support_vectors = sum_num_support_vectors / len(self.scores_tr_list)
 
     def one_versus_one(self, num_one, num_other, kernel_type, error_const,
             poly_degree, is_cross, is_repeat = False):
+        param_str = '-t %d -r 1 -g 1 -c %f -d %d' %(kernel_type, error_const, poly_degree)
         if not is_repeat:
             self.scores_tr, self.training_data_curr = self.get_one_versus_one_lists(
                     num_one, num_other, self.training_labels, self.training_data)
@@ -244,23 +80,22 @@ class MySvm:
                 self.scores_tr_list, self.training_data_curr_list, self.scores_cross_list, self.cross_data_curr_list = self.get_cross_val_lists()
 
         if not is_cross:
-            prob = svm_problem(self.scores_tr, self.training_data_curr)
-            param_str = '-t %d -r 1 -g 1 -c %f -d %d' %(kernel_type, error_const, poly_degree)
-            param = svm_parameter(param_str)
-            model = svm_train(prob, param)
-            self.model = model
+            self.model = self.get_model(param_str, self.scores_tr, self.training_data_curr)
             self.num_support_vectors = len(model.get_SV())
         else:
             self.model_list = []
             sum_num_support_vectors = 0
             for i in range(0, len(self.scores_tr_list)):
-                prob = svm_problem(self.scores_tr_list[i], self.training_data_curr_list[i])
-                param_str = '-t %d -r 1 -g 1 -c %f -d %d' %(kernel_type, error_const, poly_degree)
-                param = svm_parameter(param_str)
-                model = svm_train(prob, param)
-                self.model_list.append(model)
-                sum_num_support_vectors += len(model.get_SV())
+                self.model_list.append(self.get_model(param_str, self.scores_tr_list[i],
+                    self.training_data_curr_list[i]))
+                sum_num_support_vectors += len(self.model_list[i].get_SV())
             self.num_support_vectors = sum_num_support_vectors / len(self.scores_tr_list)
+
+    def get_model(self, param_str, scores_list, training_list):
+        prob = svm_problem(scores_list, training_list)
+        param = svm_parameter(param_str)
+        model = svm_train(prob, param)
+        return model
 
     def get_one_versus_all_lists(self, num_one, labels, data_items):
         scores = []
@@ -295,6 +130,7 @@ class MySvm:
         start = 0
         end = index
         while end < len(self.scores_tr):
+            # Last cross validation group may be slightly bigger
             if end + index >= len(self.scores_tr):
                 end = len(self.scores_tr)
             scores_cross_list.append(list(shuffled_scores_tr[start:end]))
@@ -321,7 +157,6 @@ class MySvm:
             p_labels, p_acc, p_vals = svm_predict(self.scores_cross_list[i],
                     self.cross_data_curr_list[i], self.model_list[i])
             sum_acc += p_acc[0]
-        print '========LENGTH = ', len(self.scores_cross_list)
         return sum_acc / len(self.scores_cross_list)
 
 if __name__ == '__main__':
@@ -414,6 +249,3 @@ if __name__ == '__main__':
         print 'C value in = ', c_val_in
         print 'Min error out = ', min_error_out
         print 'C value out = ', c_val_out
-
-\end{lstlisting}
-\end{document}

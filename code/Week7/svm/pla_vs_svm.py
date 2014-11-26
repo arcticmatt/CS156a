@@ -1,6 +1,7 @@
 from __future__ import division
 from sklearn import svm
 from cvxopt import matrix, solvers, spmatrix
+import sys
 import random
 import numpy as np
 
@@ -115,15 +116,11 @@ class PlaAndSvm:
             if svm_scores.count(svm_scores[0]) == len(svm_scores):
                 return -1
             clf = svm.SVC()
-            clf.kernel = 'linear'
+            clf.C = sys.maxint
             clf.fit(svm_points, svm_scores)
             self.num_support_vectors = len(clf.support_vectors_)
-            count = 0
-            for i in range (0, len(self.out_points)):
-                predict_point = [self.out_points[i][1], self.out_points[i][2]]
-                if clf.predict(predict_point)[0] != self.out_points[i][0]:
-                    count += 1
-            return count / len(self.out_points)
+            print 'len support_vectors_ = ', len(clf.support_vectors_)
+            print 'len n_support_ = ', clf.n_support_
 
     def get_svm_error(self, svm_weight_vector, b):
         svm_points = []
@@ -199,7 +196,7 @@ class PlaAndSvm:
 if __name__ == '__main__':
     print 'Kshit is gay'
     num_points = 100
-    num_runs = 20000
+    num_runs = 1000
     sum_iterations = 0
     sum_e_out_pla = 0
     sum_e_out_svm = 0
@@ -212,6 +209,7 @@ if __name__ == '__main__':
         sum_iterations += p.iterations
         e_out_pla = p.get_out_classification_error(True)
         e_out_svm = p.run_svm()
+        p.get_out_classification_error(False)
         if e_out_svm != -1:
             sum_e_out_pla += e_out_pla
             num_svm_runs += 1
